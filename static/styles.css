@@ -1,0 +1,147 @@
+h1 {
+    background-color: #fff4fa;
+    padding: 20px 20px 20px 20px;
+    color: rgb(61, 47, 61);
+    text-align: center;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+p {
+    font-family: sans-serif;
+    font-size: 18px;
+}
+
+body {
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgb(238, 199, 216) 0%, rgb(197, 216, 235) 100%);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+::selection {
+    color:white;
+    background: black;
+}
+
+ul {list-style-type: none;}
+
+/* Month header */
+.month {
+  padding: 70px 25px;
+  width: 96%;
+  background: rgb(238,174,202);
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Month list */
+.month ul {
+  margin: 0;
+  padding: 0;
+}
+
+.month ul li {
+  color: white;
+  font-size: x-large;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: rgb(61, 47, 61);
+  
+}
+
+
+
+/* Weekdays (Mon-Sun) */
+.weekdays {
+  margin: 0;
+  padding: 10px 0;
+  background-color: #ffe6f9;
+  
+}
+
+.weekdays li {
+  display: inline-block;
+  width: 13.6%;
+  color: #666;
+  text-align: center;
+  font-size: medium;
+}
+
+/* Days (1-31) */
+.days {
+  padding: 10px 0;
+  background: #ffffff;
+  margin: 0;
+  font-size: medium;
+  
+}
+
+.days li {
+  list-style-type: none;
+  display: inline-block;
+  width: 13.6%;
+  text-align: center;
+  margin-bottom: 100px;
+  
+  font-size:medium;
+  color: #777;
+}
+
+/* Highlight the "current" day */
+.days li .active {
+  padding: 5px;
+  background: #1abc9c;
+  color: white !important
+}
+
+.custom-input {
+    
+    width: 96%; /* Full width */
+    padding: 10px; /* Padding inside the input */
+    margin: 30px; /* Margin around the input */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    border: 2px solid #ccc; /* Border style */
+    border-radius: 5px; /* Rounded corners */
+    font-size: medium; /* Font size */
+    color: #333; /* Text color */
+    background-color: white; /* Background color */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition for focus effect */
+    
+}
+
+.custom-input:focus {
+    border-color: #007bff; /* Border color on focus */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Shadow effect on focus */
+    outline: none; /* Remove default outline */
+}
+
+.button {
+    --glow-color: #d8e1e8;
+    --glow-spread-color: #98bad5;
+
+    --btn-color: #d8e1e8;
+    border: .25em solid var(--glow-color);
+    padding: 1em 3em;
+    color: black;
+    font-size: medium;
+    margin: 30px;
+    margin-left: 40%;
+    background-color: var(--btn-color);
+    border-radius: 100px;
+    outline: none;
+    box-shadow: 0 0 1em .25em var(--glow-color),
+           0 0 4em 1em var(--glow-spread-color),
+           inset 0 0 .75em .25em var(--glow-color);
+    text-shadow: 0 0 .5em var(--glow-color);
+    position: relative;
+    transition: all 0.3s;
+}
+
+button:hover {
+    
+    background-color: var(--glow-color);
+    box-shadow: 0 0 1em .25em var(--glow-color),
+           0 0 4em 2em var(--glow-spread-color),
+           inset 0 0 .75em .25em var(--glow-color);
+}
+
