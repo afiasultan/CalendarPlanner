@@ -8,7 +8,6 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
-event_days = []
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -23,19 +22,19 @@ def index():
     event_year = current_year
     event_month = current_month
     event_day = current_day
-
+    
+    event_date_obj = ""
     
 
-    event_date_obj = ""
+   
 
-    if session.get("events") is None:
-        session["events"] = []
-        
-
+    if "events" not in session:
+        session["events"] = {}
+    
+    
     if request.method == "POST":
         
         event = request.form.get("event")
-        session["events"].append(event)
 
         event_date = request.form['event_date']
         event_date_obj = datetime.datetime.strptime(event_date, '%Y-%m-%d')
@@ -43,7 +42,18 @@ def index():
         event_year = event_date_obj.year
         event_month = event_date_obj.month
         event_day = event_date_obj.day
-        event_days.append(event_day)
+
+        str_event_day = str(event_day)
+        
+        
+        
+
+        if str_event_day in session["events"]:
+            session["events"][str_event_day].append(event)
+        else:
+            session["events"][str_event_day] = [event]
+            
+            
         
 
 
@@ -58,12 +68,11 @@ def index():
     else:
         num_days = 30
 
-    return render_template("index.html", events=session["events"], num_days=num_days, year=current_year, month=current_month, current_day=current_day, event_year=event_year, event_month=event_month, event_day=event_day, month_name=month_name, event_date_obj=event_date_obj, event_days=event_days)
+    return render_template("index.html", events=session["events"], num_days=num_days, year=current_year, month=current_month, current_day=current_day, event_year=event_year, event_month=event_month, event_day=event_day, month_name=month_name, event_date_obj=event_date_obj)
 
 
 @app.route("/clear", methods=["GET"])
 def clear():
-    session["events"] = []
-    global event_days
-    event_days = []
+    session["events"] = {}
     return redirect("/")
+

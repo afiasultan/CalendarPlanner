@@ -12,12 +12,20 @@
     <button class="button">Add Event</button>
 </form>
 
+<form action="{{ url_for('clear') }}" method="get">
+    <button class="button">Clear Events</button>
+</form>
+
+
+
 <div class="month">
     <ul>
       
       <li>{{month_name}}<br><span style="font-size:18px">{{year}}</span></li>
     </ul>
 </div>
+
+
   
 <ul class="weekdays">
     <li>Mo</li>
@@ -29,26 +37,24 @@
     <li>Su</li>
 </ul>
 
+
+
   
 <ul class="days">
-
-    
-
-
     {% for day in range(1, num_days + 1) %}
         <li>
             {{ day }}
-            {% for eventDay in event_days %}
-                {% if eventDay == day %}
-                    - {{ events[event_days.index(eventDay)] }}
-                {% endif %}
-            {% endfor %}
+            {% if day|string in events %} 
+                <ul>
+                    {% for event in events[day|string] %}
+                        - {{ event }}
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <span> - No Events</span>
+            {% endif %}
         </li>
     {% endfor %}
-
-
 </ul>
 
-
-    
 {% endblock %}
