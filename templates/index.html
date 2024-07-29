@@ -45,7 +45,7 @@
         <li>
             {{ day }}
             {% if day|string in events %} 
-                <ul>
+                <ul class="active">
                     {% for event in events[day|string] %}
                         - {{ event }}
                     {% endfor %}

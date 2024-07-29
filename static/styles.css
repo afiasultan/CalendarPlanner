@@ -90,7 +90,7 @@ ul {list-style-type: none;}
 /* Highlight the "current" day */
 .days li .active {
   padding: 5px;
-  background: #1abc9c;
+  background: rgb(238,174,202);
   color: white !important
 }
 
@@ -126,19 +126,17 @@ form {
 /* Styling for buttons within the form */
 form > button {
   margin-top: 20px; /* Space above the button */
-
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: medium;
   border: none;
   border-radius: 5px;
   --glow-color: #d8e1e8;
   --glow-spread-color: #98bad5;
-
   --btn-color: #d8e1e8;
   border: .25em solid var(--glow-color);
   padding: 1em 3em;
   color: black;
-  font-size: medium;
+
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
